@@ -43,32 +43,36 @@ but it contains multiple syntax errors that prevent it from being parsed.
 // ============================================
 // 🔍 Provided JSON File with Errors
 // ============================================
+/*
+Identified the following JSON syntax errors:
+    1) JSON was embedded inside backticks which will fail at JSON parsing.
+    2) JSON does not support the identifier `undefined`; use `null` or omit the property. 
+    3) Comma (,) is missing after "checkInDate": "2024-05-15"
+*/
 
-const invalidBookingJSON = `
-{
+
+const correctedBookingJSON = {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
+  "checkInDate": "2024-05-15", /* fixed: added missing comma in original */
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      name: "Alice Johnson",
+      "name": "Alice Johnson", /* fixed: property name must be quoted */
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
-      "email": "bob.smith@example"
+      "age": null, /* fixed: replaced invalid `undefined` / string "null" with JSON literal null */
+      "email": "bob.smith@example" /* kept as string (not a syntax error) */
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking"] /* fixed: removed trailing comma */
   }
-}
-`;
-
+};
 
 // ============================================
 // ✅ Requirements
@@ -77,9 +81,15 @@ const invalidBookingJSON = `
 /*
 - Use a JSON validator or linter (e.g., https://jsonlint.com/) to test your final version
 - Keep track of each fix:
-  • What was wrong?
+  • What was wrong? JSON syntax was invalid.
   • Why is it a problem in JSON?
+     1) JSON was embedded inside backticks which will fail at JSON parsing.
+     2) JSON does not support the identifier `undefined`; use `null` or omit the property. 
+     3) Comma (,) is missing after "checkInDate": "2024-05-15"
   • What did you change to fix it?
+     1) Removed backticks sorrounding JSON.
+     2) Replaced `undefined` with `null` 
+     3) Added Comma (,) after "checkInDate": "2024-05-15"
 */
 
 
