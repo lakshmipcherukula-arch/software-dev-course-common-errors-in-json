@@ -53,24 +53,24 @@ Identified the following JSON syntax errors:
 
 const correctedBookingJSON = {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15", /* fixed: added missing comma in original */
+  "checkInDate": "2024-05-15", 
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      "name": "Alice Johnson", /* fixed: property name must be quoted */
+      "name": "Alice Johnson",
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": null, /* fixed: replaced invalid `undefined` / string "null" with JSON literal null */
-      "email": "bob.smith@example" /* kept as string (not a syntax error) */
+      "age": null,
+      "email": "bob.smith@example"
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking"] /* fixed: removed trailing comma */
+    "amenities": ["WiFi", "Breakfast", "Parking"]
   }
 };
 
@@ -100,12 +100,12 @@ const correctedBookingJSON = {
 /*
 💬 Reflect and answer the following:
 
-1️⃣ What tools or techniques did you use to identify the errors?
+1️⃣ What tools or techniques did you use to identify the errors? Used https://jsonlint.com/ to identify the JSON syntax errors.
 
-2️⃣ How did you confirm that your corrected JSON file was valid?
+2️⃣ How did you confirm that your corrected JSON file was valid? Validated the updated JSON using https://jsonlint.com/. 
 
-3️⃣ Which errors were the most difficult to spot? Why?
+3️⃣ Which errors were the most difficult to spot? Why? Those errors were easy to spot.
 
-4️⃣ What strategies can help you avoid these kinds of errors in the future?
+4️⃣ What strategies can help you avoid these kinds of errors in the future? Using linters can save time in identifying the errors quickly.
    (e.g., syntax highlighting, linters, writing JSON by example)
 */
